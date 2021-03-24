@@ -7,8 +7,8 @@ import time
 # =============================================================================
 # api settings
 # =============================================================================
-APIKEY = '7f93f8db63ff36e361e8760a8c95322bdb9f4d5ea694ad578e866607802ba19e'
-USERNAME = 'Becca-monday.com'
+APIKEY = 'APIKEY'
+USERNAME = 'USERNAME'
 HEADERS = {"Api-Key": APIKEY, "Api-Username": USERNAME}
 sleep_secs = 0.3
 
