@@ -4,8 +4,7 @@ Retrieves relevant data from our [community](https://community.monday.com/).
 
 It uses the [Discourse API](https://docs.discourse.org/) for posting and running queries in the [Discourse Data Explorer plugin](https://community.monday.com/admin/plugins/explorer).
 
-Tables fetched:
-
+Running **discourse.py** fetches:
 - topics
 - posts
 - topic_tags
