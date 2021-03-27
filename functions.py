@@ -95,8 +95,8 @@ def get_query(typ):
 
 def run_sequential_queries(query, np, pd, json, requests):
  
-    API_KEY = '7f93f8db63ff36e361e8760a8c95322bdb9f4d5ea694ad578e866607802ba19e'
-    API_USERNAME = 'Becca-monday.com'
+    API_KEY = 'API_KEY'
+    API_USERNAME = 'API_USERNAME'
     headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
 
     query += ' limit 1000 offset OFFSET'
