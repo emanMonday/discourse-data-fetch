@@ -102,8 +102,8 @@ def get_query(typ):
 def run_sequential_queries(query, np, pd, json, requests):
     import time
     sec_sleep = 0.25
-    API_KEY = 'API_KEY'
-    API_USERNAME = 'API_USERNAME'
+    API_KEY = '7f93f8db63ff36e361e8760a8c95322bdb9f4d5ea694ad578e866607802ba19e'
+    API_USERNAME = 'Becca-monday.com'
     headers = {'Content-Type': 'multipart/form-data', 'Api-Key': API_KEY, 'Api-Username': API_USERNAME}
 
     query += ' limit 1000 offset OFFSET'
@@ -310,6 +310,26 @@ def get_queue_tags(topics, np, pd, json, requests):
     
     
     
+    
+def get_insert_query(table_name, df):
+        
+    insert_query = 'insert into TABLE_NAME (COLUMNS) values (VALUES)'
+    
+    insert_query = insert_query.replace('TABLE_NAME', table_name)
+    
+    cols_string = str(df.columns.tolist())
+    cols_string = cols_string[1:-1] # remove brackets
+    cols_string = cols_string.replace("'", "")
+    insert_query = insert_query.replace('COLUMNS', cols_string)
+    
+    vals_string = ''
+    for val in df.values:
+        vals_string += str(tuple(val)) + ', '
+    vals_string = vals_string[:-2]
+    insert_query = insert_query.replace('VALUES', vals_string)
+    
+    
+    return insert_query
     
     
     

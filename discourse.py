@@ -4,24 +4,23 @@ import requests
 import json
 import pandas as pd 
 import numpy as np
-from functions import get_query, run_sequential_queries
+from functions import get_query, run_sequential_queries, get_insert_query
 
-types = ['topics', 
-         'posts', 
-         'topic_tags', 
-         'users', 
-         'user_actions', 
-         'user_badges', 
-         'tags', 
-         'badges', 
-         'categories', 
-         'topic_views', 
-        ]
+table_names = ['tags', 
+                 'posts', 
+                 'topic_tags', 
+                 'users', 
+                 'user_actions', 
+                 'user_badges', 
+                 'topics', 
+                 'badges', 
+                 'categories', 
+                 'topic_views', 
+                ]
 
-
-dfs = {}
-for typ in types:
-    query = get_query(typ)
-    dfs[typ] = run_sequential_queries(query, np, pd, json, requests)
-
-# dfs is a dict of data frames. we want to send all of these to BB DB
+insert_queries = {}
+for table_name in table_names:
+    query = get_query(table_name)
+    df = run_sequential_queries(query, np, pd, json, requests)
+    insert_queries[table_name] = get_insert_query(table_name, df)
+    
